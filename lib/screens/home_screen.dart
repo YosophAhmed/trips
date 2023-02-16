@@ -20,20 +20,30 @@ class _HomeScreenState extends State<HomeScreen> {
           children: [
             Stack(
               children: [
-                Image.asset(
-                  'assets/images/cover.jpg',
-                  fit: BoxFit.fill,
+                SizedBox(
+                  height: 250,
+                  child: Image.asset(
+                    'assets/images/cover.jpg',
+                    fit: BoxFit.fill,
+                  ),
                 ),
-                const Text(
-                  'Great Trips',
-                  style: TextStyle(
-                    fontSize: 38,
-                    fontWeight: FontWeight.bold,
+                const Padding(
+                  padding: EdgeInsets.only(
+                    left: 12.0,
+                  ),
+                  child: Text(
+                    'Great Trips',
+                    style: TextStyle(
+                      fontSize: 38,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                 ),
               ],
             ),
-            const Spacer(),
+            const SizedBox(
+              height: 100,
+            ),
             const TripsListView(),
           ],
         ),
@@ -41,6 +51,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
-
-

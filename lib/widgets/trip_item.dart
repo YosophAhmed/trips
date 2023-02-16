@@ -15,7 +15,9 @@ class TripItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        bottom: 10.0,
+        bottom: 20.0,
+        left: 20.0,
+        right: 20.0,
       ),
       child: ListTile(
         onTap: () {
