@@ -9,6 +9,7 @@ class TripsListView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Expanded(
       child: ListView.builder(
+        physics: const BouncingScrollPhysics(),
         itemCount: TripData.trips.length,
         itemBuilder: (context, index) => TripItem(
           tripModel: TripData.trips[index],

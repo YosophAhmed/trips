@@ -15,7 +15,7 @@ class TripItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(
-        bottom: 20.0,
+        bottom: 25.0,
         left: 20.0,
         right: 20.0,
       ),
