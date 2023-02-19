@@ -12,22 +12,33 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
 
   AnimationController? animationController;
   Animation? colorAnimation;
+  Animation? sizeAnimation;
+  Animation<double>? curve;
 
   @override
   void initState() {
+    super.initState();
+
     animationController = AnimationController(
       duration: const Duration(
-        milliseconds: 500,
+        milliseconds: 400,
       ),
       vsync: this,
+    );
+
+    curve = CurvedAnimation(
+      parent: animationController!,
+      curve: Curves.slowMiddle,
     );
 
     colorAnimation = ColorTween(
       begin: Colors.grey[400],
       end: Colors.red,
     ).animate(
-      animationController!,
+      curve!,
     );
+
+
 
     animationController!.addListener(() {});
 
@@ -41,7 +52,25 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
         isFav = false;
       }
     });
-    super.initState();
+
+    sizeAnimation = TweenSequence([
+      TweenSequenceItem(
+        tween: Tween<double>(
+          begin: 30,
+          end: 40,
+        ),
+        weight: 40,
+      ),
+      TweenSequenceItem(
+        tween: Tween<double>(
+          begin: 40,
+          end: 30,
+        ),
+        weight: 40,
+      ),
+    ]).animate(
+      animationController!,
+    );
   }
 
   @override
@@ -64,7 +93,7 @@ class _HeartState extends State<Heart> with SingleTickerProviderStateMixin {
           icon: Icon(
             Icons.favorite,
             color: colorAnimation!.value,
-            size: 30,
+            size: sizeAnimation!.value,
           ),
         );
       },

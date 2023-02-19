@@ -7,8 +7,9 @@ class AppTitle extends StatelessWidget {
   Widget build(BuildContext context) {
     return TweenAnimationBuilder(
       duration: const Duration(
-        milliseconds: 750,
+        milliseconds: 500,
       ),
+      curve: Curves.easeIn,
       tween: Tween<double>(
         begin: 0,
         end: 1,
