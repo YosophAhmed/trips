@@ -19,7 +19,7 @@ class TripsApp extends StatelessWidget {
         DetailsScreen.routeName: (context) => const DetailsScreen(),
         SandBoxScreen.routeName: (context) => const SandBoxScreen(),
       },
-      initialRoute: SandBoxScreen.routeName,
+      initialRoute: HomeScreen.routeName,
     );
   }
 }

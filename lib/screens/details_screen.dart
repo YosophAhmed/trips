@@ -19,10 +19,13 @@ class DetailsScreen extends StatelessWidget {
             children: [
               SizedBox(
                 height: 450,
-                child: Image.asset(
-                  'assets/images/${tripModel.img}',
-                  fit: BoxFit.fill,
-                  width: double.infinity,
+                child: Hero(
+                  tag: 'location-img-${tripModel.img}',
+                  child: Image.asset(
+                    'assets/images/${tripModel.img}',
+                    fit: BoxFit.fill,
+                    width: double.infinity,
+                  ),
                 ),
               ),
               Padding(

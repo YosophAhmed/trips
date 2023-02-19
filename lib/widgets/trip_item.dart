@@ -31,9 +31,12 @@ class TripItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(
             8.0,
           ),
-          child: Image.asset(
-            'assets/images/${tripModel.img}',
-            height: 50,
+          child: Hero(
+            tag: 'location-img-${tripModel.img}',
+            child: Image.asset(
+              'assets/images/${tripModel.img}',
+              height: 50,
+            ),
           ),
         ),
         title: Column(
