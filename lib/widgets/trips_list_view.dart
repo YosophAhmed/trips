@@ -7,12 +7,21 @@ class TripsListView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final GlobalKey<AnimatedListState> listKey = GlobalKey<AnimatedListState>();
+    Tween<Offset> offset = Tween(
+      begin: const Offset(1, 0),
+      end: const Offset(0, 0),
+    );
     return Expanded(
-      child: ListView.builder(
+      child: AnimatedList(
+        key: listKey,
         physics: const BouncingScrollPhysics(),
-        itemCount: TripData.trips.length,
-        itemBuilder: (context, index) => TripItem(
-          tripModel: TripData.trips[index],
+        initialItemCount: TripData.trips.length,
+        itemBuilder: (context, index, animation) => SlideTransition(
+          position: animation.drive(offset),
+          child: TripItem(
+            tripModel: TripData.trips[index],
+          ),
         ),
       ),
     );
